@@ -1,4 +1,6 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /****
  ***** Created by Conor on 23/05/2025
@@ -9,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         Team team1 = new Team("Minnesota Timberwolves", 49.0);
-        System.out.println(df.format(team1.winPercent));
+        team1.winPercent = Team.calculateWLPercentage(team1.wins);
 
         Team team2 = new Team("Denver Nuggets", 50.0);
         team2.winPercent = Team.calculateWLPercentage(team2.wins);
@@ -56,5 +58,46 @@ public class Main {
 
         Team team16 = new Team("Miami Heat",37.0);
         team16.winPercent = Team.calculateWLPercentage(team16.wins);
+
+        List<Team> westernConference = new ArrayList<>();
+        List<Team> easternConference = new ArrayList<>();
+
+        westernConference.add(team1);
+        westernConference.add(team2);
+        westernConference.add(team3);
+        westernConference.add(team4);
+        westernConference.add(team5);
+        westernConference.add(team6);
+        westernConference.add(team7);
+        westernConference.add(team8);
+        //Sort the array list in descending order of win percentage
+        westernConference.sort((a, b) -> Double.compare(b.winPercent, a.winPercent));
+
+
+        easternConference.add(team9);
+        easternConference.add(team10);
+        easternConference.add(team11);
+        easternConference.add(team12);
+        easternConference.add(team13);
+        easternConference.add(team14);
+        easternConference.add(team15);
+        easternConference.add(team16);
+        //Sort the array list in descending order of win percentage
+        easternConference.sort((a, b) -> Double.compare (b.winPercent, a.winPercent));
+
+        System.out.println("Western Conference Standings\n-------------------");
+        for (Team team : westernConference) {
+            System.out.println(team.teamName + " - " + df.format(team.winPercent) + "%");
+        }
+
+        System.out.println("\nEastern Conference Standings\n-------------------");
+        for (Team team : easternConference) {
+            System.out.println(team.teamName + " - " + df.format(team.winPercent) + "%");
+        }
+
+
+
+
+
     }//main
 }//class
