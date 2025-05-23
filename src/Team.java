@@ -9,6 +9,14 @@ public class Team {
     double wins;
     double winPercent;
 
+    //Constructor
+    public Team (String teamName, double wins){
+        this.teamName = teamName;
+        this.wins = wins;
+        this.winPercent = calculateWLPercentage(wins);
+
+    }
+
     //This method will return a team's regular season winning percentage
     public static double calculateWLPercentage(double wins){
         return (wins/82) * 100;
