@@ -14,7 +14,6 @@ public class Team {
         this.teamName = teamName;
         this.wins = wins;
         this.winPercent = calculateWLPercentage(wins);
-
     }
 
     //This method will return a team's regular season winning percentage
