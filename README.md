@@ -28,7 +28,7 @@ Each series is run as a best-of-seven, with accurate home-court advantage given 
 You should see the regular season standings, each playoff round, and the final champion printed in your console.
 
 
-# Example Output
+## Example Output
 
 Second Round:
 --------
