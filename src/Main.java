@@ -19,18 +19,18 @@ public class Main {
             System.out.println(team.teamName + " - " + df.format(team.winPercent) + "%");
         }
 
-        System.out.println("\nPlayoffs\n--------------------");
+        System.out.println("\n============ Playoffs ===============\n");
 
-
+        System.out.println("======= Western Conference =======\n-------------");
         Team westChampion = PostSeason.simulateConference(createWesternConference());
+
+        System.out.println("\n======= Eastern Conference =======\n-------------");
         Team eastChampion = PostSeason.simulateConference(createEasternConference());
 
+        System.out.println("\n======== NBA Finals ========\n-----------------");
         Team NBAChampions = PostSeason.simSeries(westChampion, eastChampion);
 
-        System.out.println("The " + (NBAChampions.teamName) + " are your NBA Champions");
-
-
-
+        System.out.println("\nThe " + (NBAChampions.teamName) + " are your NBA Champions");
     }//main
 
 
