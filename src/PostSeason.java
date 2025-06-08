@@ -35,11 +35,18 @@ public class PostSeason {
         int teamBWins = 0;
         boolean [] homePattern = {true, true, false, false, true, false, true}; //Higher seeded team plays games 1, 2, 5 and 7 at home
 
-        System.out.println(teamA.teamName + "  vs  " + teamB.teamName);
-        for (int i = 0; i < 7; i++){
-            boolean isTeamAtHome = homePattern [i];
+        // Determine which team is the higher seed (by win %)
+        boolean isTeamAHigherSeed = teamA.winPercent >= teamB.winPercent;
 
-            Team winner = simGame(null, teamA, teamB, isTeamAtHome);
+
+        System.out.println(teamA.teamName + "  vs  " + teamB.teamName);
+
+        for (int i = 0; i < 7; i++){
+
+            boolean isHomeForHigherSeed = homePattern[i];
+            boolean isTeamAHome = (isTeamAHigherSeed == isHomeForHigherSeed);
+
+            Team winner = simGame(null, teamA, teamB, isTeamAHome);
 
             if (winner == teamA){
                 teamAWins++;

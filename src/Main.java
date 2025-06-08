@@ -9,23 +9,27 @@ public class Main {
     public static void main(String[] args) {
         DecimalFormat df = new DecimalFormat("00.00");
 
+        //Create conferences
+        List<Team> westernConference = createWesternConference();
+        List<Team> easternConference = createEasternConference();
+
         System.out.println("Western Conference Standings\n-------------------");
-        for (Team team : createWesternConference()) {
+        for (Team team : westernConference) {
             System.out.println(team.teamName + " - " + df.format(team.winPercent) + "%");
         }
 
         System.out.println("\nEastern Conference Standings\n-------------------");
-        for (Team team : createEasternConference()) {
+        for (Team team : easternConference) {
             System.out.println(team.teamName + " - " + df.format(team.winPercent) + "%");
         }
 
         System.out.println("\n============ Playoffs ===============\n");
 
         System.out.println("======= Western Conference =======\n-------------");
-        Team westChampion = PostSeason.simulateConference(createWesternConference());
+        Team westChampion = PostSeason.simulateConference(westernConference);
 
         System.out.println("\n======= Eastern Conference =======\n-------------");
-        Team eastChampion = PostSeason.simulateConference(createEasternConference());
+        Team eastChampion = PostSeason.simulateConference(easternConference);
 
         System.out.println("\n======== NBA Finals ========\n-----------------");
         Team NBAChampions = PostSeason.simSeries(westChampion, eastChampion);

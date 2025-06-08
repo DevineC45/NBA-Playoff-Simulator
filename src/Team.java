@@ -1,7 +1,6 @@
 import java.util.Scanner;
 /****
  ***** Created by Conor on 23/05/2025
- ***** UPDATE PROGRAM DESCRIPTION HERE
  ****/
 
 public class Team {
@@ -20,8 +19,4 @@ public class Team {
     public static double calculateWLPercentage(double wins){
         return (wins/82) * 100;
     }//method
-
-
-
-
 }//class
